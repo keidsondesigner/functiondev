@@ -5,8 +5,9 @@ import { RouterModule } from "@angular/router";
 import { LandingComponent } from "./landing.component";
 
 import { ReactiveFormsModule } from "@angular/forms";
+import { HomeComponent } from "./home/home.component";
 @NgModule({
-  declarations: [LandingComponent],
+  declarations: [LandingComponent, HomeComponent],
   imports: [
     CommonModule,
     LandingRoutingModule,
