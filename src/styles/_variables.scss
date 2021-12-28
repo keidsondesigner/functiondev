@@ -1,0 +1,80 @@
+$blue: #0f253d;
+$indigo: #6610f2;
+$purple: #6f42c1;
+$pink: #d63384;
+$red: #dc3545;
+$orange: #fd9843;
+$yellow: #ffcd39;
+$green: #198754;
+$teal: #286b88;
+$cyan: #258283;
+$white: #fff;
+$gray: #6c757d;
+$gray-dark: #343a40;
+
+$primary: $teal;
+$secondary: $blue;
+$success: $green;
+$danger: $red;
+$warning: $yellow;
+$info: $cyan;
+$light: $white;
+$dark: $gray-dark;
+
+$body-bg: $white;
+$body-color: $gray;
+$link-color: $blue;
+$card-border-color: rgba($white, 0.125);
+$card-bg: rgba($white, 0.05);
+$table-bg: $gray-dark;
+$list-group-bg: rgba($white, 0.05);
+$modal-content-bg: rgba($white, 0.05);
+$jumbotron-bg: rgba($white, 0.05);
+$enable-shadows: true;
+$enable-gradients: false;
+$enable-negative-margins: true;
+$enable-responsive-font-sizes: true;
+
+$font-sizes: (
+  1: 3.75rem,
+  2: 2.5rem,
+  3: 2rem,
+  4: 1.5rem,
+  5: 1.125rem,
+  6: 0.875rem
+);
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../assets/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../assets/fonts/Poppins/Poppins-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Mada";
+  src: url("../assets/fonts/Mada/Mada-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Mada";
+  src: url("../assets/fonts/Mada/Mada-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+}
+
+$font-family-sans-serif: "Mada", sans-serif, system-ui, -apple-system,
+  "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans",
+  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+
+$font-family-monospace: "Poppins", sans-serif, SFMono-Regular, Menlo, Monaco,
+  Consolas, "Liberation Mono", "Courier New", monospace !default;
