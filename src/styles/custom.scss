@@ -1,6 +1,10 @@
 /* Config Default  */
 html {
   scroll-behavior: smooth;
+
+  /* Config scrollbar firefox  */
+  scrollbar-color: $green $teal;
+  scrollbar-width: thin;
 }
 
 html::-webkit-scrollbar {
