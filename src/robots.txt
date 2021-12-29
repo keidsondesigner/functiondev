@@ -1,7 +1,7 @@
-User-Agent: *
-Allow: /index.html
+# *
+User-agent: *
+Allow: /
+Disallow: /404
 
-User-agent: Googlebot
-Disallow: /nogooglebot/
-
+# Sitemaps
 Sitemap: https://keidson-roby.vercel.app/sitemap.xml
