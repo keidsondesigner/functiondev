@@ -3,6 +3,19 @@ html {
   scroll-behavior: smooth;
 }
 
+html::-webkit-scrollbar {
+  width: 6px;
+}
+
+html::-webkit-scrollbar-track {
+  background-color: $teal;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: $green;
+  border-radius: 6px;
+}
+
 body {
   overflow-x: hidden;
   font-family: $font-family-sans-serif;
