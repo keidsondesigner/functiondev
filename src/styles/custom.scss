@@ -7,3 +7,7 @@ body {
   overflow-x: hidden;
   font-family: $font-family-sans-serif;
 }
+
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: $green !important;
+}
