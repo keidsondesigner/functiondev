@@ -59,7 +59,9 @@ $font-sizes: (
 
 @font-face {
   font-family: "Mada";
-  src: url("../assets/fonts/Mada/Mada-Regular.ttf") format("truetype");
+  src: url("../assets/fonts/Mada/Mada-Regular.ttf"),
+    url("https://fonts.googleapis.com/css2?family=Mada&display=swap")
+      format("truetype");
   font-weight: 400;
   font-display: swap;
 }
