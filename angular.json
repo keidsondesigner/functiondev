@@ -30,8 +30,7 @@
               "src/favicon.ico",
               "src/assets",
               "src/robots.txt",
-              "src/sitemap.xml",
-              "src/assets/fonts/Mada/Mada-Regular.ttf"
+              "src/sitemap.xml"
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
