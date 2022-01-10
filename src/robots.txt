@@ -4,4 +4,4 @@ Allow: /
 Disallow: /404
 
 # Sitemaps
-Sitemap: https://keidson-roby.vercel.app/sitemap.xml
+Sitemap: https://keidsonroby.vercel.app/sitemap.xml
