@@ -1,0 +1,23 @@
+.text-primary {
+  color: var(--primary-color);
+}
+
+.bg-primary {
+  background-color: var(--primary-color);
+}
+
+.border-primary {
+  border-color: var(--primary-color);
+}
+
+.group:hover .group-hover\\:text-primary {
+  color: var(--primary-color) !important;
+}
+
+.group:hover .group-hover\\:w-16 {
+  width: 4rem !important;
+}
+
+.group:hover .group-hover\\:bg-slate-200 {
+  background-color: #e2e8f0;
+}
