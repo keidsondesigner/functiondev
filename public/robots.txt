@@ -1,8 +1,7 @@
-# *
 User-agent: *
 Allow: /
-Allow: /home
 Disallow: /404
 
-# Sitemaps
-Sitemap: https://keidsonroby.vercel.app/sitemap.xml
+Crawl-delay: 0
+
+Sitemap: https://www.functiondev.com.br/sitemap.xml

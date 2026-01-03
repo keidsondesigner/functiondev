@@ -9,6 +9,9 @@ export function smoothScrollToElement(
   offset: number = -20,
   duration: number = 800
 ): void {
+  // Guard against SSR - window is not available on server
+  if (typeof window === 'undefined') return;
+
   const targetY = targetElement.getBoundingClientRect().top + window.pageYOffset + offset;
   const startY = window.pageYOffset;
   const distance = targetY - startY;
@@ -43,6 +46,9 @@ export function smoothScrollToPosition(
   targetY: number,
   duration: number = 800
 ): void {
+  // Guard against SSR - window is not available on server
+  if (typeof window === 'undefined') return;
+
   const startY = window.pageYOffset;
   const distance = targetY - startY;
   let startTime: number | null = null;

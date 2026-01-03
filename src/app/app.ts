@@ -1,5 +1,5 @@
-import { Component, ChangeDetectionStrategy, signal, effect, WritableSignal, ElementRef, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, ChangeDetectionStrategy, signal, effect, WritableSignal, ElementRef, ViewChild, AfterViewInit, OnDestroy, PLATFORM_ID, inject, afterNextRender } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { smoothScrollToElement, smoothScrollToPosition } from './utils/smooth-scroll';
 
 interface Role {
@@ -36,6 +36,7 @@ interface Project {
 export class App implements AfterViewInit, OnDestroy {
 
   @ViewChild('mainContainer') mainContainer!: ElementRef<HTMLDivElement>;
+  private platformId = inject(PLATFORM_ID);
 
   name = signal('Keidson Roby');
   title = signal('Desenvolvedor Frontend Pleno');
@@ -182,11 +183,16 @@ export class App implements AfterViewInit, OnDestroy {
         // This effect can be used to react to activeSection changes if needed
         // console.log(`Current section: ${this.activeSection()}`);
     });
+
+    // Initialize browser-only features
+    afterNextRender(() => {
+      this.initializeBrowserFeatures();
+    });
   }
 
-  ngAfterViewInit() {
+  private initializeBrowserFeatures(): void {
     const sections = this.mainContainer.nativeElement.querySelectorAll('section[id]');
-    
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -204,13 +210,21 @@ export class App implements AfterViewInit, OnDestroy {
     document.addEventListener('pointerleave', this.onPointerLeave);
   }
 
+  ngAfterViewInit() {
+    // Kept empty - browser features initialized via afterNextRender
+  }
+
   ngOnDestroy() {
+    if (!isPlatformBrowser(this.platformId)) return;
+
     window.removeEventListener('scroll', this.onWindowScroll);
     document.removeEventListener('pointermove', this.onPointerMove);
     document.removeEventListener('pointerleave', this.onPointerLeave);
   }
 
   onWindowScroll = () => {
+    if (!isPlatformBrowser(this.platformId)) return;
+
     if (window.scrollY > window.innerHeight) {
       this.showScrollToTopButton.set(true);
     } else {
@@ -219,12 +233,16 @@ export class App implements AfterViewInit, OnDestroy {
   };
 
   onPointerMove = (event: PointerEvent) => {
+    if (!isPlatformBrowser(this.platformId)) return;
+
     this.lastMouseX = event.clientX;
     this.lastMouseY = event.clientY;
     this.requestTick();
   };
 
   private requestTick = () => {
+    if (!isPlatformBrowser(this.platformId)) return;
+
     if (!this.isTicking) {
       requestAnimationFrame(this.updateSpotlight);
       this.isTicking = true;
@@ -232,6 +250,8 @@ export class App implements AfterViewInit, OnDestroy {
   };
 
   private updateSpotlight = () => {
+    if (!isPlatformBrowser(this.platformId)) return;
+
     document.documentElement.style.setProperty('--mouse-x', `${this.lastMouseX}px`);
     document.documentElement.style.setProperty('--mouse-y', `${this.lastMouseY}px`);
     document.documentElement.style.setProperty('--mouse-opacity', '1');
@@ -239,12 +259,17 @@ export class App implements AfterViewInit, OnDestroy {
   };
 
   onPointerLeave = () => {
+    if (!isPlatformBrowser(this.platformId)) return;
+
     document.documentElement.style.setProperty('--mouse-opacity', '0');
   };
 
   scrollTo(event: MouseEvent, sectionId: string): void {
     event.preventDefault();
     this.activeSection.set(sectionId);
+
+    if (!isPlatformBrowser(this.platformId)) return;
+
     const element = document.querySelector(`#${sectionId}`);
     if (element) {
       smoothScrollToElement(element);
@@ -252,6 +277,8 @@ export class App implements AfterViewInit, OnDestroy {
   }
 
   scrollTop(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
+
     smoothScrollToPosition(0);
   }
 }
